@@ -39,6 +39,7 @@ twitch.onAuthorized(function(auth) {
 
     // enable the button
     $('#cycle').removeAttr('disabled');
+    $('#show-votes').removeAttr('disabled');
 
     setAuth(token);
     $.ajax(requests.get);
@@ -67,6 +68,8 @@ $(function() {
         twitch.rig.log('Requesting a color cycle');
         $.ajax(requests.set);
     });
+
+    // 
 
     // listen for incoming broadcast message from our EBS
     twitch.listen('broadcast', function (target, contentType, color) {

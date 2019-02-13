@@ -14,6 +14,8 @@
  *    limitations under the License.
  */
 
+//require('dotenv').config();
+
 const fs = require('fs');
 const Hapi = require('hapi');
 const path = require('path');
@@ -22,6 +24,7 @@ const color = require('color');
 const ext = require('commander');
 const jsonwebtoken = require('jsonwebtoken');
 const request = require('request');
+
 
 // The developer rig uses self-signed certificates.  Node doesn't accept them
 // by default.  Do not use this in production.
@@ -73,8 +76,8 @@ const secret = Buffer.from(getOption('secret', 'ENV_SECRET'), 'base64');
 const clientId = getOption('clientId', 'ENV_CLIENT_ID');
 
 const serverOptions = {
-  host: 'localhost',
-  port: 8081,
+  host: 'http://commit-to-the-bits-bot.firebaseapp.com',
+  port: null,
   routes: {
     cors: {
       origin: ['*'],
