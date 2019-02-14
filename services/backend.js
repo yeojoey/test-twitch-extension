@@ -76,7 +76,7 @@ const secret = Buffer.from(getOption('secret', 'ENV_SECRET'), 'base64');
 const clientId = getOption('clientId', 'ENV_CLIENT_ID');
 
 const serverOptions = {
-  host: 'http://commit-to-the-bits-bot.firebaseapp.com',
+  host: 'https://commit-to-the-bits-bot.firebaseapp.com',
   port: null,
   routes: {
     cors: {

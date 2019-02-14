@@ -15,7 +15,7 @@ function createRequest(type, method) {
 
     return {
         type: type,
-        url: location.protocol + '//localhost:8081/color/' + method,
+        url: location.protocol + 'commit-to-the-bits-bot.firebaseapp.com/color/' + method,
         success: updateBlock,
         error: logError
     }
@@ -64,12 +64,13 @@ $(function() {
 
     // when we click the cycle button
     $('#cycle').click(function() {
+        console.log("Click");
         if(!token) { return twitch.rig.log('Not authorized'); }
         twitch.rig.log('Requesting a color cycle');
         $.ajax(requests.set);
     });
 
-    // 
+    //
 
     // listen for incoming broadcast message from our EBS
     twitch.listen('broadcast', function (target, contentType, color) {
